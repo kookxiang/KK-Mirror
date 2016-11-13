@@ -22,7 +22,7 @@ export default class Index extends React.Component {
 
     loadData() {
         this.setState({ loading: true });
-        fetch("/.cache/global.json")
+        fetch("/projects.json")
             .then(response => response.json())
             .then(data => {
                 this.setState({ loading: false, group: data.group });

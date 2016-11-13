@@ -23,7 +23,7 @@ export class Project extends React.Component {
 
     loadData() {
         this.setState({ loading: true });
-        fetch(`/.cache/${this.state.folderName}.json`)
+        fetch(`/${this.state.folderName}/metadata.json`)
             .then(response => response.json())
             .then(data => {
                 data.versions = data.versions.sort((left, right) => {

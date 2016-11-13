@@ -1,7 +1,0 @@
-{
-    "projectName": "Shadowsocks Android",
-    "releaseNote": "A shadowsocks client for Android",
-    "files": [
-        { "name": "Shadowsocks-Android.apk", "size": 81290 }
-    ]
-}
