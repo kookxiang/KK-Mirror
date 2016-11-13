@@ -6,7 +6,7 @@ import { ProgressBar } from "react-toolbox/lib/progress_bar";
 import { List, ListItem } from "react-toolbox/lib/list";
 import browserHistory from "react-router/lib/browserHistory";
 
-export default class Index extends React.Component {
+export class Project extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -87,3 +87,5 @@ export default class Index extends React.Component {
         </div>;
     }
 }
+
+export default Project;
