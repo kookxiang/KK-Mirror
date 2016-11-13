@@ -84,11 +84,11 @@ export default class Index extends React.Component {
         return <div>
             <AppBar fixed title="KK's Mirror" />
             {this.state.loading ? <ProgressBar mode='indeterminate' /> : []}
-            {this.state.group.filter(x => this.state.showHidden || !x.hidden).map((group, key) => {
-                return <List key={key} ripple className={this.state.loading ? cssClass.hidden : cssClass.container}>
+            {this.state.group.filter(x => this.state.showHidden || !x.hidden).map(group => {
+                return <List key={group.name} ripple className={this.state.loading ? cssClass.hidden : cssClass.container}>
                     <ListSubHeader caption={group.name} />
-                    {group.project.filter(x => this.state.showHidden || !x.hidden).map((project, key) => {
-                        return <ListItem key={key} avatar={project.image || "/images/folder.png"} caption={project.name} legend={project.description} to={project.folder + "/"} onClick={this.redirect.bind(this, project.folder + "/")} />;
+                    {group.project.filter(x => this.state.showHidden || !x.hidden).map(project => {
+                        return <ListItem key={project.folder} avatar={project.image || "/images/folder.png"} caption={project.name} legend={project.description} to={project.folder + "/"} onClick={this.redirect.bind(this, project.folder + "/")} />;
                     })}
                 </List>;
             })}
