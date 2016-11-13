@@ -3,7 +3,6 @@ import React from "react";
 import ReactDom from "react-dom";
 import Route from "react-router/lib/Route";
 import Router from "react-router/lib/Router";
-import IndexRoute from "react-router/lib/IndexRoute";
 import BrowserHistory from "react-router/lib/browserHistory";
 import "whatwg-fetch";
 
