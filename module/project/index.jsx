@@ -69,7 +69,7 @@ export class Project extends React.Component {
 
     render() {
         return <div>
-            <AppBar fixed title={this.state.project.name} leftIcon="arrow_back" onLeftIconClick={browserHistory.goBack} />
+            <AppBar fixed title={this.state.project.name} leftIcon="arrow_back" onLeftIconClick={this.redirect.bind(this, "/")} />
             {this.state.loading ? <ProgressBar mode='indeterminate' /> : []}
             <div className={cssClass.container}>
                 <h5>{this.state.project.name}</h5>
