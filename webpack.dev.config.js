@@ -48,6 +48,14 @@ module.exports = {
         new ExtractTextPlugin("[name].css"),
         new webpack.DefinePlugin({
             "process.env.NODE_ENV": JSON.stringify("dev")
-        })
-    ]
+        }),
+        new webpack.HotModuleReplacementPlugin()
+    ],
+    devServer:{
+        inline: true,
+        hot: true,
+        historyApiFallback: {
+            index: "/index.html"
+        }
+    }
 };

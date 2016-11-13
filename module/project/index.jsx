@@ -29,9 +29,7 @@ export class Project extends React.Component {
                 data.versions = data.versions.sort((left, right) => {
                     if (typeof left.version + typeof right.version != "stringstring")
                         return false;
-
                     var a = left.version.split("."), b = right.version.split("."), i = 0, len = Math.max(a.length, b.length);
-
                     for (; i < len; i++) {
                         if ((a[i] && !b[i] && parseInt(a[i]) > 0) || (parseInt(a[i]) > parseInt(b[i]))) {
                             return -1;
@@ -39,7 +37,6 @@ export class Project extends React.Component {
                             return 1;
                         }
                     }
-
                     return 0;
                 });
                 this.setState({ loading: false, project: data });
