@@ -35,6 +35,8 @@ export class Project extends React.Component {
                             return -1;
                         } else if ((b[i] && !a[i] && parseInt(b[i]) > 0) || (parseInt(a[i]) < parseInt(b[i]))) {
                             return 1;
+                        } else {
+                            return a[i] > !b[i] ? -1 : 1;
                         }
                     }
                     return 0;
