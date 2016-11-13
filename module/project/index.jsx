@@ -80,7 +80,7 @@ export class Project extends React.Component {
             <List ripple className={this.state.loading ? cssClass.hidden : cssClass.container}>
                 {this.state.project.versions.map(data => {
                     let isLatest = data.version == this.state.project.latest;
-                    return <ListItem key={data.version} leftIcon={isLatest ? "folder_open" : "folder"} rightIcon={isLatest ? "star" : undefined} caption={data.version} legend={(isLatest ? "Latest Version. " : "") + "Release at: " + data.updateTime} to={`/${this.state.folderName}/${data.version}/`} onClick={this.redirect.bind(this, `/${this.state.folderName}/${data.version}/`)} />;
+                    return <ListItem key={data.version} leftIcon={isLatest ? "folder_open" : "folder"} rightIcon={isLatest ? "star" : undefined} caption={data.version} legend={(isLatest ? "Latest Version. " : "") + "Release at: " + new Date(data.updateTime).toLocaleString()} to={`/${this.state.folderName}/${data.version}/`} onClick={this.redirect.bind(this, `/${this.state.folderName}/${data.version}/`)} />;
                 })}
             </List>
         </div>;
