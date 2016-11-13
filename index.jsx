@@ -21,9 +21,7 @@ const container = document.getElementById("container");
 setTimeout(() => {
     ReactDom.render(
         <Router history={BrowserHistory}>
-            <Route path="/">
-                <IndexRoute component={Index} />
-                <Route path=":folderName/" component={Project} />
-            </Route>
+            <Route path=":folderName/" component={Project} />
+            <Route path="/" component={Index} />
         </Router>, container);
 }, 100);
