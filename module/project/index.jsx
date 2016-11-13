@@ -3,7 +3,7 @@ import cssClass from "./style.scss";
 import React from "react";
 import { AppBar } from "react-toolbox/lib/app_bar";
 import { ProgressBar } from "react-toolbox/lib/progress_bar";
-// import { List, ListItem, ListSubHeader } from "react-toolbox/lib/list";
+import { List, ListItem } from "react-toolbox/lib/list";
 import browserHistory from "react-router/lib/browserHistory";
 
 export default class Index extends React.Component {
@@ -15,6 +15,7 @@ export default class Index extends React.Component {
             project: {
                 name: props.routeParams.folderName,
                 readme: "",
+                latest: "",
                 versions: []
             }
         };
@@ -25,6 +26,22 @@ export default class Index extends React.Component {
         fetch(`/.cache/${this.state.folderName}.json`)
             .then(response => response.json())
             .then(data => {
+                data.versions = data.versions.sort((left, right) => {
+                    if (typeof left.version + typeof right.version != "stringstring")
+                        return false;
+
+                    var a = left.version.split("."), b = right.version.split("."), i = 0, len = Math.max(a.length, b.length);
+
+                    for (; i < len; i++) {
+                        if ((a[i] && !b[i] && parseInt(a[i]) > 0) || (parseInt(a[i]) > parseInt(b[i]))) {
+                            return -1;
+                        } else if ((b[i] && !a[i] && parseInt(b[i]) > 0) || (parseInt(a[i]) < parseInt(b[i]))) {
+                            return 1;
+                        }
+                    }
+
+                    return 0;
+                });
                 this.setState({ loading: false, project: data });
             }).catch(() => {
                 Snackbar.Show({
@@ -55,12 +72,18 @@ export default class Index extends React.Component {
 
     render() {
         return <div>
-            <AppBar fixed title={this.state.project.name} leftIcon="keyboard_arrow_left" onLeftIconClick={browserHistory.goBack} />
+            <AppBar fixed title={this.state.project.name} leftIcon="arrow_back" onLeftIconClick={browserHistory.goBack} />
             {this.state.loading ? <ProgressBar mode='indeterminate' /> : []}
             <div className={cssClass.container}>
                 <h5>{this.state.project.name}</h5>
                 <div className={cssClass.content}>{this.state.project.description}</div>
             </div>
+            <List ripple className={this.state.loading ? cssClass.hidden : cssClass.container}>
+                {this.state.project.versions.map(data => {
+                    let isLatest = data.version == this.state.project.latest;
+                    return <ListItem key={data.version} leftIcon={isLatest ? "folder_open" : "folder"} rightIcon={isLatest ? "star" : undefined} caption={data.version} legend={(isLatest ? "Latest Version. " : "") + "Release at: " + data.updateTime} to={data.version + "/"} onClick={this.redirect.bind(this, data.version + "/")} />;
+                })}
+            </List>
         </div>;
     }
 }

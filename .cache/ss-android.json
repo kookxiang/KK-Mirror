@@ -4,10 +4,11 @@
     "image": "",
     "description": "A shadowsocks client for Android",
     "readme": "A shadowsocks client for Android",
-    "versions": {
-        "0.0.1": {
-            "files": [],
-            "log": ""
-        }
-    }
+    "latest": "0.0.42",
+    "versions": [
+        { "version": "0.0.1", "updateTime": "2016-11-13 20:27:49" },
+        { "version": "0.0.5", "updateTime": "2016-11-13 20:27:49" },
+        { "version": "0.0.42", "updateTime": "2016-11-13 20:27:49" },
+        { "version": "0.0.3", "updateTime": "2016-11-13 20:27:49" }
+    ]
 }

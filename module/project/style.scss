@@ -18,6 +18,10 @@
         padding: 2*$unit 1.6*$unit 1.4*$unit;
     }
 
+    li [data-react-toolbox="font-icon"] {
+        margin: 0 $unit !important;
+    }
+
     .content {
         padding: 1.4*$unit 1.6*$unit;
         user-select: text;
