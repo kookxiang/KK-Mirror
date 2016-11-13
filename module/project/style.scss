@@ -1,0 +1,25 @@
+.container {
+    display: block;
+    box-sizing: border-box;
+    margin: 1.6*$unit auto 2*$unit;
+    background: #fff;
+    max-width: 94 * $unit;
+    width: 92%;
+    box-shadow: rgba(0, 0, 0, 0.137255) 0 2px 2px 0, rgba(0, 0, 0, 0.2) 0 3px 1px -2px, rgba(0, 0, 0, 0.117647) 0 1px 5px 0;
+    border-radius: 0.2 * $unit;
+    font-size: 1.4 * $unit;
+
+    h5 {
+        font-size: 2.4 * $unit;
+        font-weight: 400;
+        line-height: 3.2 * $unit;
+        -moz-osx-font-smoothing: grayscale;
+        line-height: 1.25;
+        padding: 2*$unit 1.6*$unit 1.4*$unit;
+    }
+
+    .content {
+        padding: 1.4*$unit 1.6*$unit;
+        user-select: text;
+    }
+}

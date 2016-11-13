@@ -1,0 +1,18 @@
+ul.container {
+    display: block;
+    box-sizing: border-box;
+    margin: 1.6*$unit auto 2*$unit;
+    background: #fff;
+    max-width: 94 * $unit;
+    width: 92%;
+    box-shadow: rgba(0, 0, 0, 0.137255) 0 2px 2px 0, rgba(0, 0, 0, 0.2) 0 3px 1px -2px, rgba(0, 0, 0, 0.117647) 0 1px 5px 0;
+    border-radius: 0.2 * $unit;
+}
+
+.container > li [data-react-toolbox="font-icon"] {
+    margin: 0 $unit !important;
+}
+
+ul.hidden, .hidden {
+    display: none;
+}

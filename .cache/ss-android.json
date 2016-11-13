@@ -1,0 +1,13 @@
+{
+    "name": "Shadowsocks Android",
+    "folder": "ss-android",
+    "image": "",
+    "description": "A shadowsocks client for Android",
+    "readme": "A shadowsocks client for Android",
+    "versions": {
+        "0.0.1": {
+            "files": [],
+            "log": ""
+        }
+    }
+}

@@ -1,0 +1,99 @@
+@import "./material-icon.css";
+@import "~react-toolbox/components/commons.scss";
+
+html {
+    font: 12px "Roboto", "Helvetica Neue", Helvetica, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: #f5f5f5;
+    // font-size: 62.5%;
+    user-select: none;
+}
+
+:global(#container) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+
+    padding-top: 6.4 * $unit;        // reserved for appbar
+    padding-bottom: $unit;
+
+    @media screen and (max-width: $layout-breakpoint-xxs) and (orientation: portrait) {
+        padding-top: 5.6 * $unit;
+    }
+
+    @media screen and (max-width: $layout-breakpoint-xs) and (orientation: landscape) {
+        padding-top: 4.8 * $unit;
+    }
+}
+
+:global(#loading) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: table;
+    background: #2980B9;
+    text-align: center;
+    user-select: none;
+    cursor: default;
+    opacity: 1;
+    z-index: 1000;
+
+    & > div {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    h2, p {
+        margin: 0;
+        line-height: 1.7em;
+        color: #fff;
+    }
+
+    h2 {
+        margin: 0;
+        font-weight: normal;
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 12px;
+        color: #def;
+
+        &:global(.desc){
+            position: absolute;
+            bottom: .5em;
+            left: 0;
+            right: 0;
+        }
+    }
+
+    &.loading-fade-out {
+        opacity: 0;
+        transition: opacity 1s ease-out;
+    }
+}
+
+h1 {
+    padding-left: .5em;
+}
+
+.hidden {
+    display: none;
+}

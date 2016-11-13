@@ -1,0 +1,22 @@
+{
+    "group": [
+        {
+            "name": "Shadowsocks",
+            "hidden": true,
+            "project": [
+                {
+                    "name": "Shadowsocks Go",
+                    "folder": "ss-go",
+                    "image": "",
+                    "description": "go port of shadowsocks."
+                },
+                {
+                    "name": "Shadowsocks Android",
+                    "folder": "ss-android",
+                    "image": "",
+                    "description": "A shadowsocks client for Android"
+                }
+            ]
+        }
+    ]
+}
