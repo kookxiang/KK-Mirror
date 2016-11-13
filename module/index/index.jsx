@@ -83,7 +83,7 @@ export default class Index extends React.Component {
     render() {
         return <div>
             <AppBar fixed title="KK's Mirror" />
-            {this.state.loading ? <ProgressBar mode='indeterminate' /> : null}
+            {this.state.loading ? <ProgressBar mode='indeterminate' /> : []}
             {this.state.group.filter(x => this.state.showHidden || !x.hidden).map((group, key) => {
                 return <List key={key} ripple className={this.state.loading ? cssClass.hidden : cssClass.container}>
                     <ListSubHeader caption={group.name} />
@@ -94,7 +94,7 @@ export default class Index extends React.Component {
             })}
             <List ripple className={this.state.loading ? cssClass.hidden : cssClass.container}>
                 <ListSubHeader caption='Sync Project' />
-                {this.state.showHidden ? <ListItem leftIcon="visibility_off" caption="Hide Blocked Project" legend="Hide projects which is not allow to post here" onClick={this.onLock} /> : null}
+                {this.state.showHidden ? <ListItem leftIcon="visibility_off" caption="Hide Blocked Project" legend="Hide projects which is not allow to post here" onClick={this.onLock} /> : []}
                 <ListItem leftIcon="sync" caption="Sync" legend="Last sync at 2016-11-12 16:20:40" />
                 <ListItem leftIcon="send" caption="Feedback" legend="Contact server manager" to="mailto:kookxiang@gmail.com?subject=KK's Mirror Feedback" />
                 <ListItem leftIcon="info" caption="About KK's Mirror" legend="V2.0.0 Beta" onClick={this.onUnlock} />
