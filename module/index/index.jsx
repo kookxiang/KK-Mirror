@@ -14,6 +14,7 @@ export default class Index extends React.Component {
         this.state = {
             loading: true,
             showHidden: localStorage["showHidden"],
+            updateTime: new Date().toLocaleString(),
             group: []
         };
         this.onLock = this.onLock.bind(this);
@@ -25,7 +26,7 @@ export default class Index extends React.Component {
         fetch("/projects.json")
             .then(response => response.json())
             .then(data => {
-                this.setState({ loading: false, group: data.group });
+                this.setState({ loading: false, group: data.group, updateTime: new Date(data.updateTime).toLocaleString(), });
             }).catch(() => {
                 Snackbar.Show({
                     content: "Failed to load data.",
@@ -95,7 +96,7 @@ export default class Index extends React.Component {
             <List ripple className={this.state.loading ? cssClass.hidden : cssClass.container}>
                 <ListSubHeader caption='Sync Project' />
                 {this.state.showHidden ? <ListItem leftIcon="visibility_off" caption="Hide Blocked Project" legend="Hide projects which is not allow to post here" onClick={this.onLock} /> : []}
-                <ListItem leftIcon="sync" caption="Sync" legend="Last sync at 2016-11-12 16:20:40" />
+                <ListItem leftIcon="sync" caption="Sync" legend={"Last sync at " + this.state.updateTime} />
                 <ListItem leftIcon="send" caption="Feedback" legend="Contact server manager" to="mailto:kookxiang@gmail.com?subject=KK's Mirror Feedback" />
                 <ListItem leftIcon="info" caption="About KK's Mirror" legend="V2.0.0 Beta" onClick={this.onUnlock} />
             </List>
