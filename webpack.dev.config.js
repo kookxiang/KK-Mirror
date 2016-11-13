@@ -18,7 +18,7 @@ module.exports = {
             { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: "file?limit=8192&name=assert/[hash:hex:6].[ext]&minetype=application/font-woff" },
             { test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/, loader: "file?limit=8192&name=assert/[hash:hex:6].[ext]&minetype=application/font-woff" },
             { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "file?limit=8192&name=assert/[hash:hex:6].[ext]&minetype=application/octet-stream" },
-            { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
+            { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file?name=assert/[hash:hex:6].[ext]" },
             { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "file?limit=8192&name=assert/[hash:hex:6].[ext]&minetype=image/svg+xml" },
             { test: /\.(jpe?g|gif|png)$/, loader: "file?limit=8192&name=assert/[hash:hex:6].[ext]" },
             {
@@ -28,7 +28,10 @@ module.exports = {
                 query: {
                     presets: ["es2015", "react"],
                     plugins: [
-                        ["import", { libraryName: "react-toolbox", style: "sass" }], "add-module-exports", "transform-runtime"
+                        ["import", [
+                            { libraryName: "react-toolbox", style: "sass" },
+                            { libraryName: "react-router", camel2DashComponentName: false },
+                        ]], "add-module-exports", "transform-runtime"
                     ]
                 }
             }

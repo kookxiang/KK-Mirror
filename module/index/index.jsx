@@ -4,7 +4,7 @@ import React from "react";
 import { AppBar } from "react-toolbox/lib/app_bar";
 import { ProgressBar } from "react-toolbox/lib/progress_bar";
 import { List, ListItem, ListSubHeader } from "react-toolbox/lib/list";
-import browserHistory from "react-router/lib/browserHistory";
+import { browserHistory } from "react-router";
 
 let unlock_time = 0, unlock_clicks = 1;
 
@@ -88,7 +88,7 @@ export default class Index extends React.Component {
                 return <List key={group.name} ripple className={this.state.loading ? cssClass.hidden : cssClass.container}>
                     <ListSubHeader caption={group.name} />
                     {group.project.filter(x => this.state.showHidden || !x.hidden).map(project => {
-                        return <ListItem key={project.folder} avatar={project.image || "/images/folder.png"} caption={project.name} legend={project.description} to={project.folder + "/"} onClick={this.redirect.bind(this, project.folder + "/")} />;
+                        return <ListItem key={project.folder} avatar={project.image || "/images/folder.png"} caption={project.name} legend={project.description} to={project.folder} onClick={this.redirect.bind(this, project.folder)} />;
                     })}
                 </List>;
             })}

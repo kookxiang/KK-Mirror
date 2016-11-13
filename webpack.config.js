@@ -28,7 +28,10 @@ module.exports = {
                 query: {
                     presets: ["es2015", "react"],
                     plugins: [
-                        ["import", { libraryName: "react-toolbox", style: "sass" }], "add-module-exports", "transform-runtime"
+                        ["import", [
+                            { libraryName: "react-toolbox", style: "sass" },
+                            { libraryName: "react-router", camel2DashComponentName: false },
+                        ]], "add-module-exports", "transform-runtime"
                     ]
                 }
             }

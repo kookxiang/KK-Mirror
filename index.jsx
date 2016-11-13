@@ -1,13 +1,12 @@
 import cssClass from "./css/main.scss";
 import React from "react";
 import ReactDom from "react-dom";
-import Route from "react-router/lib/Route";
-import Router from "react-router/lib/Router";
-import BrowserHistory from "react-router/lib/browserHistory";
+import { Route, Router, IndexRoute, browserHistory } from "react-router";
 import "whatwg-fetch";
 
 import Index from "./module/index/";
 import Project from "./module/project/";
+import Version from "./module/version/";
 
 window.hideLoadingDiv = function () {
     const loadingDiv = document.getElementById("loading");
@@ -19,8 +18,9 @@ window.hideLoadingDiv = function () {
 const container = document.getElementById("container");
 setTimeout(() => {
     ReactDom.render(
-        <Router history={BrowserHistory}>
-            <Route path=":folderName/" component={Project} />
+        <Router history={browserHistory}>
+            <Route path="/:folderName/:version" component={Version} />
+            <Route path="/:folderName" component={Project} />
             <Route path="/" component={Index} />
         </Router>, container);
 }, 100);

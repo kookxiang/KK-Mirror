@@ -4,16 +4,16 @@ import React from "react";
 import { AppBar } from "react-toolbox/lib/app_bar";
 import { ProgressBar } from "react-toolbox/lib/progress_bar";
 import { List, ListItem } from "react-toolbox/lib/list";
-import browserHistory from "react-router/lib/browserHistory";
+import { browserHistory } from "react-router";
 
 export class Project extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             loading: true,
-            folderName: props.routeParams.folderName,
+            folderName: props.params.folderName,
             project: {
-                name: props.routeParams.folderName,
+                name: props.params.folderName,
                 readme: "",
                 latest: "",
                 versions: []
@@ -81,7 +81,7 @@ export class Project extends React.Component {
             <List ripple className={this.state.loading ? cssClass.hidden : cssClass.container}>
                 {this.state.project.versions.map(data => {
                     let isLatest = data.version == this.state.project.latest;
-                    return <ListItem key={data.version} leftIcon={isLatest ? "folder_open" : "folder"} rightIcon={isLatest ? "star" : undefined} caption={data.version} legend={(isLatest ? "Latest Version. " : "") + "Release at: " + data.updateTime} to={data.version + "/"} onClick={this.redirect.bind(this, data.version + "/")} />;
+                    return <ListItem key={data.version} leftIcon={isLatest ? "folder_open" : "folder"} rightIcon={isLatest ? "star" : undefined} caption={data.version} legend={(isLatest ? "Latest Version. " : "") + "Release at: " + data.updateTime} to={`/${this.state.folderName}/${data.version}/`} onClick={this.redirect.bind(this, `/${this.state.folderName}/${data.version}/`)} />;
                 })}
             </List>
         </div>;
