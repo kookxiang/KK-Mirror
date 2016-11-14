@@ -5,9 +5,10 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
     entry: "./index.jsx",
     output: {
-        path: "dist",
+        path: "dist/Resources",
         filename: "[name].js",
-        sourceMapFilename: "[file].map"
+        sourceMapFilename: "[file].map",
+        publicPath: "/Resources"
     },
     resolve: {
         extensions: ["", ".js", ".jsx"]
@@ -15,12 +16,12 @@ module.exports = {
     module: {
         loaders: [
             { test: /\.(sc|sa|c)ss$/, loader: ExtractTextPlugin.extract("style", "css?sourceMap&importLoaders=1&modules&camelCase&localIdentName=[path][name][local]_[hash:base64:6]!postcss!sass") },
-            { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: "file?limit=8192&name=assert/[hash:hex:6].[ext]&minetype=application/font-woff" },
-            { test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/, loader: "file?limit=8192&name=assert/[hash:hex:6].[ext]&minetype=application/font-woff" },
-            { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "file?limit=8192&name=assert/[hash:hex:6].[ext]&minetype=application/octet-stream" },
-            { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file?name=assert/[hash:hex:6].[ext]" },
-            { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "file?limit=8192&name=assert/[hash:hex:6].[ext]&minetype=image/svg+xml" },
-            { test: /\.(jpe?g|gif|png)$/, loader: "file?limit=8192&name=assert/[hash:hex:6].[ext]" },
+            { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: "file?limit=8192&name=Asserts/[hash:hex:6].[ext]&minetype=application/font-woff" },
+            { test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/, loader: "file?limit=8192&name=Asserts/[hash:hex:6].[ext]&minetype=application/font-woff" },
+            { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "file?limit=8192&name=Asserts/[hash:hex:6].[ext]&minetype=application/octet-stream" },
+            { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file?name=Asserts/[hash:hex:6].[ext]" },
+            { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "file?limit=8192&name=Asserts/[hash:hex:6].[ext]&minetype=image/svg+xml" },
+            { test: /\.(jpe?g|gif|png)$/, loader: "file?limit=8192&name=Asserts/[hash:hex:6].[ext]" },
             {
                 test: /\.js|jsx$/,
                 exclude: /node_modules/,

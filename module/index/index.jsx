@@ -89,7 +89,7 @@ export default class Index extends React.Component {
                 return <List key={group.name} ripple className={this.state.loading ? cssClass.hidden : cssClass.container}>
                     <ListSubHeader caption={group.name} />
                     {group.project.filter(x => this.state.showHidden || !x.hidden).map(project => {
-                        return <ListItem key={project.folder} avatar={project.image || "/images/folder.png"} caption={project.name} legend={project.description} to={`/${project.folder}/`} onClick={this.redirect.bind(this, `/${project.folder}/`)} />;
+                        return <ListItem key={project.folder} avatar={project.image || require("../../images/folder.png")} caption={project.name} legend={project.description} to={`/${project.folder}/`} onClick={this.redirect.bind(this, `/${project.folder}/`)} />;
                     })}
                 </List>;
             })}
