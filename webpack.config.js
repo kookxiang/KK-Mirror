@@ -10,7 +10,7 @@ module.exports = {
     output: {
         path: "dist/Resources",
         filename: "[name].[hash:8].js",
-        publicPath: "/Resources"
+        publicPath: "/Resources/"
     },
     resolve: {
         extensions: ["", ".js", ".jsx"]

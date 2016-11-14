@@ -8,7 +8,7 @@ module.exports = {
         path: "dist/Resources",
         filename: "[name].js",
         sourceMapFilename: "[file].map",
-        publicPath: "/Resources"
+        publicPath: "/Resources/"
     },
     resolve: {
         extensions: ["", ".js", ".jsx"]
