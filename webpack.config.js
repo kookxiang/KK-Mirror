@@ -3,7 +3,6 @@ var fs = require("fs");
 var path = require("path");
 var webpack = require("webpack");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var CleanWebpackPlugin = require("clean-webpack-plugin");
 
 module.exports = {
     entry: "./index.jsx",
@@ -51,7 +50,6 @@ module.exports = {
         ];
     },
     plugins: [
-        new CleanWebpackPlugin(["dist"], { root: __dirname }),
         new ExtractTextPlugin("[name].[hash:8].css"),
         new webpack.DefinePlugin({
             "process.env.NODE_ENV": JSON.stringify("production")
