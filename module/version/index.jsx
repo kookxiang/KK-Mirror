@@ -73,7 +73,7 @@ export class Version extends React.Component {
             </div>
             <List ripple className={this.state.loading ? cssClass.hidden : cssClass.container}>
                 {this.state.files.map(file => {
-                    return <ListItem key={file.name} leftIcon="file_download" caption={file.name} legend={formatSize(file.size) + " Bytes"} to={`/${this.state.folderName}/${this.state.version}/${file.name}`} />;
+                    return <ListItem key={file.name} leftIcon="file_download" caption={file.name} legend={formatSize(file.size)} to={`/${this.state.folderName}/${this.state.version}/${file.name}`} />;
                 })}
             </List>
         </div>;
