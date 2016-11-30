@@ -12,6 +12,7 @@ export default class Index extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            syncing: false,
             loading: true,
             showHidden: localStorage["showHidden"],
             updateTime: new Date().toLocaleString(),
@@ -19,6 +20,7 @@ export default class Index extends React.Component {
         };
         this.onLock = this.onLock.bind(this);
         this.onUnlock = this.onUnlock.bind(this);
+        this.onSync = this.onSync.bind(this);
     }
 
     loadData() {
@@ -47,6 +49,15 @@ export default class Index extends React.Component {
 
     componentWillUnmount() {
         Snackbar.Hide();
+    }
+
+    onSync() {
+        if (this.state.syncing) return;
+        Snackbar.Show({
+            content: "Synchronizing...",
+            timeout: 3000
+        });
+        this.setState({ syncing: true });
     }
 
     onUnlock() {
@@ -96,7 +107,7 @@ export default class Index extends React.Component {
             <List ripple className={this.state.loading ? cssClass.hidden : cssClass.container}>
                 <ListSubHeader caption='Sync Project' />
                 {this.state.showHidden ? <ListItem leftIcon="visibility_off" caption="Hide Blocked Project" legend="Hide projects which is not allow to post here" onClick={this.onLock} /> : []}
-                <ListItem leftIcon="sync" caption="Sync" legend={"Last sync at " + this.state.updateTime} />
+                <ListItem disabled={this.state.syncing} leftIcon="sync" caption="Sync" legend={this.state.syncing ? "Syncing..." : "Last sync at " + this.state.updateTime} onclick={this.onSync} />
                 <ListItem leftIcon="send" caption="Feedback" legend="Contact server manager" to="mailto:kookxiang@gmail.com?subject=KK's Mirror Feedback" />
                 <ListItem leftIcon="info" caption="About KK's Mirror" legend="V2.0.0 Beta" onClick={this.onUnlock} />
             </List>
