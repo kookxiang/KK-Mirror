@@ -107,7 +107,7 @@ export default class Index extends React.Component {
             <List ripple className={this.state.loading ? cssClass.hidden : cssClass.container}>
                 <ListSubHeader caption='Sync Project' />
                 {this.state.showHidden ? <ListItem leftIcon="visibility_off" caption="Hide Blocked Project" legend="Hide projects which is not allow to post here" onClick={this.onLock} /> : []}
-                <ListItem disabled={this.state.syncing} leftIcon="sync" caption="Sync" legend={this.state.syncing ? "Syncing..." : "Last sync at " + this.state.updateTime} onclick={this.onSync} />
+                <ListItem disabled={this.state.syncing} leftIcon="sync" caption="Sync" legend={this.state.syncing ? "Syncing..." : "Last sync at " + this.state.updateTime} onClick={this.onSync} />
                 <ListItem leftIcon="send" caption="Feedback" legend="Contact server manager" to="mailto:kookxiang@gmail.com?subject=KK's Mirror Feedback" />
                 <ListItem leftIcon="info" caption="About KK's Mirror" legend="V2.0.0 Beta" onClick={this.onUnlock} />
             </List>
