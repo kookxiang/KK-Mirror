@@ -88,7 +88,7 @@ export class Project extends React.Component {
             {this.state.loading ? <ProgressBar mode='indeterminate' /> : []}
             <div className={cssClass.container}>
                 <h5>{this.state.project.name}</h5>
-                <div className={cssClass.content} dangerouslySetInnerHTML={marked(this.state.project.readme)} />
+                <div className={cssClass.content} dangerouslySetInnerHTML={{__html: marked(this.state.project.readme)}} />
             </div>
             <List ripple className={this.state.loading ? cssClass.hidden : cssClass.container}>
                 {this.state.project.versions.map(data => {

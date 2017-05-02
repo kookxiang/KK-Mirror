@@ -70,7 +70,7 @@ export class Version extends React.Component {
             {this.state.loading ? <ProgressBar mode='indeterminate' /> : []}
             <div className={this.state.loading ? cssClass.hidden : cssClass.container}>
                 <h5>{this.state.projectName}- {this.state.version}:</h5>
-                <div className={cssClass.content} dangerouslySetInnerHTML={marked(this.state.releaseNote)} />
+                <div className={cssClass.content} dangerouslySetInnerHTML={{__html: marked(this.state.releaseNote)}} />
             </div>
             <List ripple className={this.state.loading ? cssClass.hidden : cssClass.container}>
                 {this.state.files.map(file => {
