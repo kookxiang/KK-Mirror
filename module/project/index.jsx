@@ -5,6 +5,7 @@ import { AppBar } from "react-toolbox/lib/app_bar";
 import { ProgressBar } from "react-toolbox/lib/progress_bar";
 import { List, ListItem } from "react-toolbox/lib/list";
 import { browserHistory } from "react-router";
+import marked from 'marked';
 
 function version_compare(v1, v2) {
     var vm = { "dev": -6, "alpha": -5, "a": -5, "beta": -4, "b": -4, "RC": -3, "rc": -3, "#": -2, "p": 1, "pl": 1 };
@@ -87,7 +88,7 @@ export class Project extends React.Component {
             {this.state.loading ? <ProgressBar mode='indeterminate' /> : []}
             <div className={cssClass.container}>
                 <h5>{this.state.project.name}</h5>
-                <div className={cssClass.content}>{this.state.project.readme}</div>
+                <div className={cssClass.content}>{marked(this.state.project.readme)}</div>
             </div>
             <List ripple className={this.state.loading ? cssClass.hidden : cssClass.container}>
                 {this.state.project.versions.map(data => {

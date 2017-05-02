@@ -5,6 +5,7 @@ import { AppBar } from "react-toolbox/lib/app_bar";
 import { ProgressBar } from "react-toolbox/lib/progress_bar";
 import { List, ListItem } from "react-toolbox/lib/list";
 import { browserHistory } from "react-router";
+import marked from 'marked';
 
 function formatSize(size) {
     let i = -1;
@@ -69,7 +70,7 @@ export class Version extends React.Component {
             {this.state.loading ? <ProgressBar mode='indeterminate' /> : []}
             <div className={this.state.loading ? cssClass.hidden : cssClass.container}>
                 <h5>{this.state.projectName}- {this.state.version}:</h5>
-                <div className={cssClass.content}>{this.state.releaseNote}</div>
+                <div className={cssClass.content}>{marked(this.state.releaseNote)}</div>
             </div>
             <List ripple className={this.state.loading ? cssClass.hidden : cssClass.container}>
                 {this.state.files.map(file => {
