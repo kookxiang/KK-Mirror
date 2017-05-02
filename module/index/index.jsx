@@ -72,6 +72,8 @@ export default class Index extends React.Component {
         } else {
             localStorage["showHidden"] = true;
             this.setState({ showHidden: true });
+            let root = document.querySelector("#container");
+            root.scrollTop = root.scrollHeight;
             Snackbar.Show({
                 content: "Displaying all projects",
                 timeout: 3000,
