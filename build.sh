@@ -5,4 +5,8 @@
 
 # Build
 echo "Build via webpack..."
-webpack
+yarn run build
+
+# Clean-up
+rm -rf node_modules/
+
